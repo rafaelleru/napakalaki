@@ -32,8 +32,8 @@ public class napakalakiPrueba {
     public static ArrayList<Monster> getMonsterOnlyLoseLevels(){
         ArrayList <Monster> sol = new ArrayList<>();
         for(Monster m : monstruos){
-            if(m.getBc().getNHidden() == 0 && m.getBc.getNVisible() == 0 && 
-                    m.getBc.getDeath() == false)
+            if(m.getBc().getnHiddenTreasures() == 0 && m.getBc().getnVisibleTreasures() == 0
+                    && !m.getBc().isDeath())
                 sol.add(m);
         }
         
