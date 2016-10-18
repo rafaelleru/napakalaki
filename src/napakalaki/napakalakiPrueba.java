@@ -43,22 +43,22 @@ public class napakalakiPrueba {
     public static ArrayList<Monster> getMonsterWinLevels(){
         ArrayList <Monster> sol = new ArrayList<>();
         for(Monster m : monstruos){
-            if(!(m.getPrize().getLevel() => 2)) 
+            if(!(m.getPrize().getLevel() >= 2)) 
                 sol.add(m);
-            }
         }
         
         return sol;
     }
     
-    public static ArrayList<Monster> getMonsterLoseTreasures(TreasureKind tipo){
-        ArrayList <Monster> sol = new ArraList();
+    public static ArrayList<Monster> monsterDiscardTreasures(TreasureKind t){
+        ArrayList <Monster> sol = new ArrayList<>();
         for(Monster m : monstruos){
-            if(m.getBc().getSpecificHiddenTreasures(tipo) => 1 || 
-                    m.getBc().getSpecificVisibleTreasures(tipo) => 1)
+            ArrayList<TreasureKind> v = m.getBc().getSpecificVisibleTreasures();
+            ArrayList<TreasureKind> h = m.getBc().getSpecificHiddenTreasures();
+            
+            if(v.contains(t) || h.contains(t))
                 sol.add(m);
         }
-        
         return sol;
     }
     
