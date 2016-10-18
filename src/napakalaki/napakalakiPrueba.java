@@ -39,7 +39,29 @@ public class napakalakiPrueba {
         
         return sol;
     }
-
+    
+    public static ArrayList<Monster> getMonsterWinLevels(){
+        ArrayList <Monster> sol = new ArrayList<>();
+        for(Monster m : monstruos){
+            if(!(m.getPrize().getLevel() => 2)) 
+                sol.add(m);
+            }
+        }
+        
+        return sol;
+    }
+    
+    public static ArrayList<Monster> getMonsterLoseTreasures(TreasureKind tipo){
+        ArrayList <Monster> sol = new ArraList();
+        for(Monster m : monstruos){
+            if(m.getBc().getSpecificHiddenTreasures(tipo) => 1 || 
+                    m.getBc().getSpecificVisibleTreasures(tipo) => 1)
+                sol.add(m);
+        }
+        
+        return sol;
+    }
+    
     /**
      * @param args the command line arguments
      */
