@@ -63,4 +63,33 @@ public class BadConsequence {
         return text + " decrementa: " + Integer.toString(levels);
     }
 
+    public String getText() {
+        return text;
+    }
+
+    public int getLevels() {
+        return levels;
+    }
+
+    public int getnVisibleTreasures() {
+        return nVisibleTreasures;
+    }
+
+    public int getnHiddenTreasures() {
+        return nHiddenTreasures;
+    }
+
+    public boolean isDeath() {
+        return death;
+    }
+
+    public ArrayList<TreasureKind> getSpecificHiddenTreasures() {
+        return specificHiddenTreasures;
+    }
+
+    public ArrayList<TreasureKind> getSpecificVisibleTreasures() {
+        return specificVisibleTreasures;
+    }
+    
+    
 }
