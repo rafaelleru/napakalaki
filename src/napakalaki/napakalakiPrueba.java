@@ -14,6 +14,31 @@ import java.util.Arrays;
  */
 public class napakalakiPrueba {
     private static ArrayList<Monster> monstruos = new ArrayList<>();
+    
+    /**
+     * 
+     * @return monstruos con nivel mayor que 10 
+     */
+    public static ArrayList<Monster> getMonsterLevel10(){
+        ArrayList <Monster> sol = new ArrayList<>();
+        for(Monster m : monstruos){
+            if(m.getCombatLevel() > 10)
+                sol.add(m);
+        }
+        
+        return sol;
+    }
+    
+    public static ArrayList<Monster> getMonsterOnlyLoseLevels(){
+        ArrayList <Monster> sol = new ArrayList<>();
+        for(Monster m : monstruos){
+            if(m.getBc().getNHidden() == 0 && m.getBc.getNVisible() == 0 && 
+                    m.getBc.getDeath() == false)
+                sol.add(m);
+        }
+        
+        return sol;
+    }
 
     /**
      * @param args the command line arguments
