@@ -62,6 +62,14 @@ public class napakalakiPrueba {
         return sol;
     }
     
+    public static void print(ArrayList<Monster> m, String cadena){
+        System.out.print(cadena + "\n");
+        
+        for(Monster m_: m){
+            System.out.print(m_.toString() + "\n");
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -178,6 +186,14 @@ public class napakalakiPrueba {
                 ,new ArrayList(Arrays.asList()));
         Prize prize18 = new Prize(2,1);
         monstruos.add(new Monster("Bicéfalo",21,badConsequence18,prize18));
+        
+        
+        ///Pruebas
+        print(getMonsterLevel10(), "monstruos con nivel mayor que 10");
+        print(getMonsterOnlyLoseLevels(), "monstruos que solo decrementan niveles");
+        print(getMonsterWinLevels(), "monstruos que ganan niveles");
+        print(monsterDiscardTreasures(TreasureKind.ARMOR), "monstruos que te hacen perder ARMOR");
+        
     }
-    
+        
 }
