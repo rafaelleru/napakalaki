@@ -11,7 +11,7 @@ package napakalaki;
  */
 public class CardDealer {
     
-    private static CardDealer = null;
+    private static CardDealer instance = null;
     
     private CardDealer(){}
     private void initTreasuresCardDeck(){}
