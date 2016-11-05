@@ -14,8 +14,19 @@ public class Treasure {
     private String name;
     private int bonus;
     
-    public Treasure(String n, int bonus, TreasureKind t){}
-    public String getName(){}
-    public int getBonus(){}
-    public TreasureKind getType(){}
+    public Treasure(String n, int b, TreasureKind t){
+        name = n;
+        bonus = b;
+    }
+    public String getName(){
+        return name;
+    }
+    
+    public int getBonus(){
+        return bonus;
+    }
+    
+    public TreasureKind getType(){
+        return t;
+    }
 }
