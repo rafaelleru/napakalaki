@@ -17,8 +17,16 @@ public class Player {
     private boolean dead = true;
     private boolean canISteal = true;
     
-    public Player(String n){}
-    public String getName(){}
+    public Player(String n){
+        name = n;
+        level = 0;
+        dead = false;
+        canISteal = false;
+    }
+    
+    public String getName(){
+        return name;
+    }
     private void bringToLife(){}
     private void incrementLevels(int l){}
     private void decrementLevels(int l){}
@@ -28,7 +36,10 @@ public class Player {
     private boolean canMakeTreasureVisible(Treasure t){}
     private int howManyVisibleTreasures(TreasureKind tKind){}
     private void dielfNoTreasures(){}
-    public boolean isDead(){}
+    public boolean isDead(){
+        return dead;
+    }
+    
     public ArrayList<Treasure> getHiddenTreasures(){}
     public ArrayList<Treasure> getVisibleTreasures(){}
     public CombatResult combat(Monster m){}
@@ -37,11 +48,17 @@ public class Player {
     public void discardHiddenTreasure(Treasure t){}
     public boolean validState(){}
     public void initTreasures(){}
-    public int getLevels(){}
+    public int getLevels(){
+        return level;
+    }
+    
     public Treasure stealTreasure(){}
     public void setEnemy(Player enemy){}
     private Treasure giveMeATreasure(){}
-    public boolean canISteal(){}
+    public boolean canISteal(){
+        return canISteal;
+    }  
+    
     private boolean canYouGiveMeATreasure(){}
     private void haveStolen(){}
     public void discardAllTreasure(){}
