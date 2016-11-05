@@ -18,7 +18,10 @@ public class Napakalaki {
     private Player nextPlayer(){}
     private boolean nextTurnAllowed(){}
     private void setEnemies(){}
-    public static Napakalaki getInstance(){}
+    public static Napakalaki getInstance(){
+        return instance;
+    }
+    
     public CombatResult developCombat(){}
     public void discardVisibleTreasures(ArrayList<Treasure> treasures){}
     public void discardHiddenTreasures(ArrayList<Treasure> treasures){}
