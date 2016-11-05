@@ -18,7 +18,10 @@ public class CardDealer {
     private void initMonsterCardDeck(){}
     private void shuffleTreasures(){}
     private void shuffleMonsters(){}
-    public static CardDealer getInstance(){}
+    public static CardDealer getInstance(){
+        return instance;
+    }
+    
     public Treasure nextTreasure(){}
     public Monster nextMonster(){}
     public void giveTreasureBack(Treasure t){}
