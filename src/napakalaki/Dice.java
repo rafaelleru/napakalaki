@@ -14,7 +14,9 @@ public class Dice {
     private static Dice instance = null;
     
     private Dice(){}
-    public static Dice getInstance(){}
+    public static Dice getInstance(){
+        return instance;
+    }
     public int nextNumber(){}
     
 }
