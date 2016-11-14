@@ -19,9 +19,11 @@ public class BadConsequence {
     private boolean death;
     private ArrayList<TreasureKind> specificHiddenTreasures = new ArrayList<>();
     private ArrayList<TreasureKind> specificVisibleTreasures = new ArrayList<>();
+    static final int MAXTREASURES = 10;
+    
     
     /**
-     * 
+     * @brief Construye un mal rollo con los parametros dados
      * @param t texto 
      * @param l levels
      * @param nV nVisibleTreasures
@@ -35,7 +37,7 @@ public class BadConsequence {
     }
     
     /**
-     * 
+     * @brief Construye un mal rollo definiendo si estas muerto o no
      * @param t texto
      * @param d valor que define si hay muerte o no
      */
@@ -45,7 +47,7 @@ public class BadConsequence {
     }
     
     /**
-     * 
+     * @brief Construye un mal rollo con los parametros dados y tesoros visibles y ocultos
      * @param text texto
      * @param levels niveles
      * @param tVisible array de tipos de los tesoros visibles
@@ -59,37 +61,95 @@ public class BadConsequence {
         specificVisibleTreasures = tVisible;
     }
     
+    /**
+     * @brief Devuelve un texto con los niveles que decrementa
+     * @return Texto que dice los niveles disminuidos
+     */
     public String toString(){
         return text + " decrementa: " + Integer.toString(levels);
     }
-
+    
+    /**
+     * @brief Devuelve descripcion del monstruo
+     * @return Texto con la descripcion del monstruo
+     */
     public String getText() {
         return text;
     }
-
+    
+    /**
+     * @brief Devuelve el numero de nivel del monstruo
+     * @return Nivel del monstruo
+     */
     public int getLevels() {
         return levels;
     }
-
+    
+    /**
+     * @brief Devuelve numero de tesoros visibles
+     * @return Cuantos tesoros visibles quita
+     */
     public int getnVisibleTreasures() {
         return nVisibleTreasures;
     }
-
+    
+    /**
+     * @brief Devuelve numero de tesoros ocultos
+     * @return Cuantos tesoros ocultos quita
+     */
     public int getnHiddenTreasures() {
         return nHiddenTreasures;
     }
-
+    
+    /**
+     * @brief Devuelve si esta muerto o no
+     * @return Booleana que dice si estas muerto o no
+     */
     public boolean isDeath() {
         return death;
     }
-
+    
+    /**
+     * @brief Devuelve lista con los tesoros visibles especificos
+     * @return ArrayList con los tesoros visibles especificos que quita
+     */
     public ArrayList<TreasureKind> getSpecificHiddenTreasures() {
         return specificHiddenTreasures;
     }
-
+    
+    /**
+     * @brief Devuelve lista con los tesoros ocultos especificos
+     * @return ArrayList con los tesoros ocultos especificos que quita
+     */
     public ArrayList<TreasureKind> getSpecificVisibleTreasures() {
         return specificVisibleTreasures;
     }
     
+    public boolean isEmpty(){
+        if( nVisibleTreasures == 0 && nHiddenTreasures == 0 && 
+            specificVisibleTreasures.size() == 0 && specificHiddenTreasures.size() == 0)
+            return true;
+        else
+            return false;
+    }
     
+    /**
+     * @brief Elimina tesoro visile
+     * @param t Tesoro visible que va a sustraer
+     */
+    //public void substractVisibleTreasure( Treasure t ){}
+    
+    /**
+     * @brief Elimina un tesoro oculto
+     * @param t Tesoro oculto que se desea sustraer
+     */
+    //public void substractHiddenTreasure( Treasure t ){}
+    
+    /**
+     * @brief No se que hace ahora mismo xd
+     * @param v Lista de tesoros
+     * @param h lista de tesoros
+     * @return Un objeto de la clase BadConsequence
+     */
+    //public BadConsequence adjustToFitTreasureLists( ArrayList<Treasure> v, ArrayList<Treasure> h){}
 }
