@@ -200,7 +200,7 @@ public class Player {
      */
     private void haveStolen(){
         this.canISteal = false;
-    }
-    public void discardAllTreasure(){}
+    }  
+    //public void discardAllTreasure(){}
     
 }
