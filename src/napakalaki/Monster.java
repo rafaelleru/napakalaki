@@ -48,4 +48,12 @@ public class Monster {
     public String toString(){
         return name + " Niveles: " + Integer.toString(combatLevel) + " " + bc.toString() + " " + prize.toString();
     }
+    
+    public int getLevelsGained(){
+        return this.bc.getLevels();
+    }
+    
+    public int getTreasuresGained(){
+        return this.bc.getnHiddenTreasures() + this.bc.getnVisibleTreasures();
+    }
 }
