@@ -13,10 +13,12 @@ public class Treasure {
     
     private String name;
     private int bonus;
+    private TreasureKind type;
     
     public Treasure(String n, int b, TreasureKind t){
         name = n;
         bonus = b;
+        type = t;
     }
     public String getName(){
         return name;
@@ -27,6 +29,6 @@ public class Treasure {
     }
     
     public TreasureKind getType(){
-        return t;
+        return type;
     }
 }
