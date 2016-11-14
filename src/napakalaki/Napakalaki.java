@@ -5,6 +5,8 @@
  */
 package napakalaki;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author archdri
@@ -12,8 +14,13 @@ package napakalaki;
 public class Napakalaki {
     
     private static Napakalaki instance = null;
+    private Player currentPlayer;
+    private ArrayList<Player> players;
+    private CardDealer dealer;
+    private Monster currentMonster;
     
-    private Napakalaki(){}
+    
+    /**private Napakalaki(){}
     private void initPlayers(ArrayList<String> names){}
     private Player nextPlayer(){}
     private boolean nextTurnAllowed(){}
@@ -30,6 +37,6 @@ public class Napakalaki {
     public Player getCurrentPlayer(){}
     public Monster getCurrentMonster(){}
     public boolean nextTurn(){}
-    public boolean endOfGame(CombatResult result){}
+    public boolean endOfGame(CombatResult result){}**/
     
 }
