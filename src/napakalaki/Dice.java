@@ -5,6 +5,8 @@
  */
 package napakalaki;
 
+import java.util.Random;
+
 /**
  *
  * @author archdri
@@ -12,11 +14,15 @@ package napakalaki;
 public class Dice {
     
     private static Dice instance = null;
-    
+    private Random r = new Random();
+
     private Dice(){}
     public static Dice getInstance(){
         return instance;
     }
-    public int nextNumber(){}
+    public int nextNumber(){
+        return r.nextInt(6) + 1;
+        
+    }
     
 }
