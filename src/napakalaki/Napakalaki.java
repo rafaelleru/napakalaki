@@ -6,6 +6,7 @@
 package napakalaki;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -20,23 +21,84 @@ public class Napakalaki {
     private Monster currentMonster;
     
     
-    /**private Napakalaki(){}
-    private void initPlayers(ArrayList<String> names){}
-    private Player nextPlayer(){}
-    private boolean nextTurnAllowed(){}
-    private void setEnemies(){}
+    private Napakalaki(){}
+    
     public static Napakalaki getInstance(){
         return instance;
     }
     
-    public CombatResult developCombat(){}
+    private void initPlayers(ArrayList<String> names){
+       players = new ArrayList<>();
+       for(String n : names){
+           players.add(new Player(n));
+       }
+     }
+    
+    private Player nextPlayer(){
+        int index;
+        Player nextPlayer;
+        int totalPlayers = this.players.size();
+        
+        if(this.currentPlayer == null){
+            Random ale = new Random();
+            index = ale.nextInt(totalPlayers);
+        }else{
+            int currentPlayerIndex = this.players.indexOf(this.currentPlayer);
+            if(currentPlayerIndex == totalPlayers - 1)
+                index = 0;
+            else
+                index = currentPlayerIndex + 1;
+        }
+        
+        nextPlayer = this.players.get(index);
+        this.currentPlayer = nextPlayer;
+        
+        return this.currentPlayer;
+        
+    }
+    
+    public Player getCurrentPlayer(){
+        return this.currentPlayer;
+    }
+    
+    public Monster getCurrentMonster(){
+        return this.currentMonster;
+    }
+    
+    private boolean nextTurnAllowed(){
+        boolean allowed;
+        
+        if(this.currentPlayer == null){
+            allowed = true;
+        }else{
+            allowed = this.currentPlayer.validState();
+        }
+        
+        return allowed;
+    }
+    
+    public boolean endOfGame(CombatResult result){
+        boolean resultado;
+        
+        if(result == CombatResult.WINGAME)
+            resultado = true;
+        else
+            resultado = false;
+            
+        return resultado;
+    }
+    
+    private void setEnemies(){
+        
+    }
+    
+    
+    /*public CombatResult developCombat(){}
     public void discardVisibleTreasures(ArrayList<Treasure> treasures){}
     public void discardHiddenTreasures(ArrayList<Treasure> treasures){}
     public void makeTreasuresVisible(ArrayList<Treasure> treasures){}
     public void initGame(ArrayList<String> players){}
-    public Player getCurrentPlayer(){}
-    public Monster getCurrentMonster(){}
-    public boolean nextTurn(){}
-    public boolean endOfGame(CombatResult result){}**/
+    public boolean nextTurn(){}*/
+    
     
 }
