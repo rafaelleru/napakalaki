@@ -137,13 +137,23 @@ public class BadConsequence {
      * @brief Elimina tesoro visile
      * @param t Tesoro visible que va a sustraer
      */
-    //public void substractVisibleTreasure( Treasure t ){}
+    public void substractVisibleTreasure( Treasure t ){
+        if(this.specificVisibleTreasures.contains(t))
+            this.specificVisibleTreasures.remove(t);
+        if(this.nVisibleTreasures > 0)
+            this.nVisibleTreasures--;
+    }
     
     /**
      * @brief Elimina un tesoro oculto
      * @param t Tesoro oculto que se desea sustraer
      */
-    //public void substractHiddenTreasure( Treasure t ){}
+    public void substractHiddenTreasure( Treasure t ){
+        if(this.specificHiddenTreasures.contains(t))
+            this.specificHiddenTreasures.remove(t); 
+        if(this.nHiddenTreasures > 0)
+            this.nHiddenTreasures--;
+    }
     
     /**
      * @brief No se que hace ahora mismo xd
