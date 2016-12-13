@@ -294,7 +294,18 @@ public class Player {
         return this.level;
     }
     
-    //public Treasure stealTreasure(){}
+    public Treasure stealTreasure(){
+        if(this.canISteal()){
+            if(this.enemy.canYouGiveMeATreasure()){
+                Treasure t = this.enemy.giveMeATreasure();
+                this.nHiddenTreasures.add(t);
+                this.haveStolen();
+                return t;
+            }
+        }
+        
+        return null;
+    }
     
     /**
      * *@brief asigna el enemigo de player
