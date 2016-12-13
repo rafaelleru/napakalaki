@@ -189,7 +189,12 @@ public class CardDealer {
         return instance;
     }
     
-    //public Treasure nextTreasure(){}
+    public Treasure nextTreasure(){
+       Treasure t;
+       t = this.unusedTreasures.get(this.unusedTreasures.size());
+       this.unusedMonster.remove(t);
+       return t;
+    }
     //public Monster nextMonster(){}
     public void giveTreasureBack(Treasure t){
         this.usedTreasures.add(t);
