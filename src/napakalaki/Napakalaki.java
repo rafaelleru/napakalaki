@@ -98,11 +98,27 @@ public class Napakalaki {
         return this.currentPlayer.combat(this.currentMonster);
         
     }
-    /*public void discardVisibleTreasures(ArrayList<Treasure> treasures){}
+    public void discardVisibleTreasures(ArrayList<Treasure> treasures){
+        for(Treasure t: treasures){
+            this.currentPlayer.discardVisibleTreasure(t);
+        }
+    }
     public void discardHiddenTreasures(ArrayList<Treasure> treasures){}
-    public void makeTreasuresVisible(ArrayList<Treasure> treasures){}
-    public void initGame(ArrayList<String> players){}
-    public boolean nextTurn(){}*/
+    public void makeTreasuresVisible(ArrayList<Treasure> treasures){
+        for(Treasure t: treasures){
+            this.currentPlayer.makeTreasureVisible(t);
+        }
+    }
+    
+    public void initGame(ArrayList<String> players){
+        this.initPlayers(players);
+        this.setEnemies();
+        this.dealer.initCards();
+        this.nextTurn();
+    }
+    public boolean nextTurn(){
+        return true;
+    }
     
     
 }

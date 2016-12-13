@@ -201,7 +201,13 @@ public class Player {
         }
     }
     
-    //public void makeTreasureVisible(Treasure t){}
+    public void makeTreasureVisible(Treasure t){
+        if(this.canMakeTreasureVisible(t)){
+            this.nVisibleTreasures.add(t);
+            this.nHiddenTreasures.remove(t);
+        }
+    }
+    
     public void discardVisibleTreasure(Treasure t){
         this.nVisibleTreasures.remove(t);
         
