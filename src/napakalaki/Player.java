@@ -90,8 +90,8 @@ public class Player {
         int nLevels = m.getCombatLevel();
         
         this.decrementLevels(nLevels);
-        this.pendingBadConsequence = badconsequence.adjustToFitTreasureList(
-                                        this.nVisibleTreasures, this.nHiddenTreasures);
+        //this.pendingBadConsequence = badconsequence.adjustToFitTreasureList(
+          //                              this.nVisibleTreasures, this.nHiddenTreasures);
         this.setPendingBadConsequence(this.pendingBadConsequence);
         
     }
@@ -202,8 +202,33 @@ public class Player {
     }
     
     //public void makeTreasureVisible(Treasure t){}
-    public void discardVisibleTreasure(Treasure t){}
-    public void discardHiddenTreasure(Treasure t){}
+    public void discardVisibleTreasure(Treasure t){
+        this.nVisibleTreasures.remove(t);
+        
+        if((this.pendingBadConsequence != null) && (this.pendingBadConsequence.isEmpty()
+                == false)){
+            this.pendingBadConsequence.substractVisibleTreasure(t);
+        }
+        
+        this.dielfNoTreasures();
+        
+        CardDealer cd = CardDealer.getInstance();
+        cd.giveTreasureBack(t);
+    
+    }
+    public void discardHiddenTreasure(Treasure t){
+        this.nHiddenTreasures.remove(t);
+        
+        if((this.pendingBadConsequence != null) && (this.pendingBadConsequence.isEmpty()
+                == false)){
+            this.pendingBadConsequence.substractVisibleTreasure(t);
+        }
+        
+        this.dielfNoTreasures();
+        
+        CardDealer cd = CardDealer.getInstance();
+        cd.giveTreasureBack(t);
+    }
     
     /**
      * @brief devuelve si el jugador es pato para jugar su turno
@@ -216,7 +241,27 @@ public class Player {
             return true;
         else return false;
     }
-    public void initTreasures(){}
+    public void initTreasures(){
+        CardDealer cd = CardDealer.getInstance();
+        Dice d = Dice.getInstance();
+        
+        this.bringToLife();
+        
+        Treasure t = cd.nextTreasure();
+        this.nHiddenTreasures.add(t);
+        
+        int n = d.nextNumber();
+        
+        if(n > 1){
+            t = cd.nextTreasure();
+            this.nHiddenTreasures.add(t);
+        }
+        
+        if(n > 6){
+            t = cd.nextTreasure();
+            this.nHiddenTreasures.add(t);
+        }
+    }
     
     /**
      * @brief devuelve el nivel de combate del jugador
