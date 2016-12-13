@@ -203,6 +203,9 @@ public class CardDealer {
     public void giveMonsterBack(Monster m){
         this.usedMonster.add(m);
     }
-    //public void initCards(){}
+    public void initCards(){
+        this.initTreasuresCardDeck();
+        this.initMonsterCardDeck();
+    }
     
 }
