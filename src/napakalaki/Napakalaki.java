@@ -89,12 +89,16 @@ public class Napakalaki {
     }
     
     private void setEnemies(){
-        
+        //hacer
     }
     
     
-    /*public CombatResult developCombat(){}
-    public void discardVisibleTreasures(ArrayList<Treasure> treasures){}
+    public CombatResult developCombat(){
+        this.dealer.giveMonsterBack(this.currentMonster);
+        return this.currentPlayer.combat(this.currentMonster);
+        
+    }
+    /*public void discardVisibleTreasures(ArrayList<Treasure> treasures){}
     public void discardHiddenTreasures(ArrayList<Treasure> treasures){}
     public void makeTreasuresVisible(ArrayList<Treasure> treasures){}
     public void initGame(ArrayList<String> players){}

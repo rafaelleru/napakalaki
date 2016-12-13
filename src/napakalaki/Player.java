@@ -176,7 +176,31 @@ public class Player {
     public ArrayList<Treasure> getVisibleTreasures(){
         return this.nVisibleTreasures;
     }
-    //public CombatResult combat(Monster m){}
+    public CombatResult combat(Monster m){
+        int monsterLevel = m.getCombatLevel();
+        
+        if(this.canISteal() == false){
+            Dice d = Dice.getInstance();
+            int n = d.nextNumber();
+        
+            if(n < 3){
+                int enemyLevel = this.enemy.getCombatLevels();
+                monsterLevel += enemyLevel;
+            }
+        }
+
+        if(this.getCombatLevels() > monsterLevel){
+            this.applyPrize(m);
+            if(this.getCombatLevels() >= MAXLEVEL)
+                return CombatResult.WINGAME;
+            else
+                return CombatResult.WIN;
+        }else{
+            this.applyBadConsequence(m);
+            return CombatResult.LOSE;
+        }
+    }
+    
     //public void makeTreasureVisible(Treasure t){}
     public void discardVisibleTreasure(Treasure t){}
     public void discardHiddenTreasure(Treasure t){}
