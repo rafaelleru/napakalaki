@@ -6,6 +6,7 @@
 package napakalaki;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -72,7 +73,39 @@ public class Player {
     }
     //private void applyPrize(Monster m){}
     //private void applyBadConsequence(Monster m){}
-    //private boolean canMakeTreasureVisible(Treasure t){}
+    private boolean canMakeTreasureVisible(Treasure t){
+        boolean result = false;
+        
+        if(this.nVisibleTreasures.size() < 4){
+            TreasureKind type = t.getType();
+            switch(type){
+                case ONEHAND:
+                    if(isTreasureKindInUse(TreasureKind.BOTHHANDS)){
+                        result = false;
+                    }else{
+                        int i = 0;
+                        
+                        for(Treasure tv : this.nVisibleTreasures){
+                            if(tv.getType().equals(TreasureKind.ONEHAND)){
+                                i++;
+                            }
+                        }
+                        
+                        if(i == 2){
+                            result = false;
+                        }else{
+                            result = true;
+                        }
+                    }
+                    break;
+                    
+                default:
+                    result = !isTreasureKindInUse(type);
+                    break;
+            }
+        }
+        return result;
+    }
     
     /**
      * @brief indica el nuemro de tesoros de un tipo
@@ -174,7 +207,13 @@ public class Player {
         this.enemy = enemy;
     }
     
-    //private Treasure giveMeATreasure(){}
+    private Treasure giveMeATreasure(){
+        Treasure result;
+        Random ale = new Random();
+        int n = ale.nextInt(this.nHiddenTreasures.size());
+        result = this.nHiddenTreasures.get(n);
+        return result;
+    }
     
     /**
      * @brief indica si el jugador puede robar, lo cual indica si lo hizo en la 
