@@ -165,8 +165,8 @@ public class Player {
     }
     //public CombatResult combat(Monster m){}
     //public void makeTreasureVisible(Treasure t){}
-    //public void discardVisibleTreasure(Treasure t){}
-    //public void discardHiddenTreasure(Treasure t){}
+    public void discardVisibleTreasure(Treasure t){}
+    public void discardHiddenTreasure(Treasure t){}
     
     /**
      * @brief devuelve si el jugador es pato para jugar su turno
@@ -249,6 +249,12 @@ public class Player {
     private void haveStolen(){
         this.canISteal = false;
     }  
-    //public void discardAllTreasure(){}
+    public void discardAllTreasure(){
+        for(Treasure t: this.nVisibleTreasures)
+            this.discardVisibleTreasure(t);
+        
+        for(Treasure t: this.nHiddenTreasures)
+            this.discardHiddenTreasure(t);
+    }
     
 }
