@@ -117,7 +117,17 @@ public class Napakalaki {
         this.nextTurn();
     }
     public boolean nextTurn(){
-        return true;
+        boolean stateOk = this.nextTurnAllowed();
+        if(stateOk){
+            this.currentMonster = this.dealer.nextMonster();
+            this.currentPlayer = this.nextPlayer();
+            
+            if(this.currentPlayer.isDead()){
+                this.currentPlayer.initTreasures();
+            }
+        }
+        
+        return stateOk;
     }
     
     

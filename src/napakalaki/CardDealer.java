@@ -195,7 +195,9 @@ public class CardDealer {
        this.unusedMonster.remove(t);
        return t;
     }
-    //public Monster nextMonster(){}
+    public Monster nextMonster(){
+        return this.unusedMonster.get(0);
+    }
     public void giveTreasureBack(Treasure t){
         this.usedTreasures.add(t);
     }
