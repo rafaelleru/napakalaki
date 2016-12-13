@@ -18,7 +18,10 @@ public class Dice {
 
     private Dice(){}
     public static Dice getInstance(){
-        return instance;
+       if( instance == null)
+           instance = new Dice();
+       
+       return instance;
     }
     public int nextNumber(){
         return r.nextInt(6) + 1;

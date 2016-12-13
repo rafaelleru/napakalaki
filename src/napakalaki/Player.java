@@ -10,7 +10,7 @@ import java.util.Random;
 
 /**
  *
- * @author archdri
+ * @author archdrif
  */
 public class Player {
     
@@ -20,8 +20,8 @@ public class Player {
     private boolean dead = true;
     private boolean canISteal = true;
     private Player enemy;
-    private ArrayList<Treasure> nVisibleTreasures;
-    private ArrayList<Treasure> nHiddenTreasures;
+    private ArrayList<Treasure> nVisibleTreasures  = new ArrayList<>();
+    private ArrayList<Treasure> nHiddenTreasures = new ArrayList<>();
     private BadConsequence pendingBadConsequence;
     
     public Player(String n){
@@ -32,6 +32,10 @@ public class Player {
     }
     
     public String getName(){
+        return name;
+    }
+    
+    public String toString(){
         return name;
     }
     
@@ -242,7 +246,7 @@ public class Player {
      *         false en otro caso
      */
     public boolean validState(){
-        if(this.pendingBadConsequence.isEmpty() && 
+        if(this.pendingBadConsequence != null && this.pendingBadConsequence.isEmpty() && 
                 this.nHiddenTreasures.size() < 4)
             return true;
         else return false;

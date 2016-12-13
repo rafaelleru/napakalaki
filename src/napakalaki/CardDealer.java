@@ -17,9 +17,9 @@ public class CardDealer {
     
     private static CardDealer instance = null;
     private ArrayList<Treasure> unusedTreasures;
-    private ArrayList<Treasure> usedTreasures;
+    private ArrayList<Treasure> usedTreasures = new ArrayList<Treasure>();
     private ArrayList<Monster> unusedMonster;
-    private ArrayList<Monster> usedMonster;
+    private ArrayList<Monster> usedMonster = new ArrayList<Monster>();
     
     private CardDealer(){}
     
@@ -67,6 +67,7 @@ public class CardDealer {
     
     private void initMonsterCardDeck(){
     
+        unusedMonster = new ArrayList<Monster>();
         BadConsequence badConsequence0 = new BadConsequence("Pierdes tu armadura visible."
                 + "y otra oculta",0,new ArrayList(Arrays.asList(TreasureKind.ARMOR)),
                 new ArrayList(Arrays.asList(TreasureKind.ARMOR)));
@@ -186,6 +187,9 @@ public class CardDealer {
     }
     
     public static CardDealer getInstance(){
+        if (instance == null) {
+            instance = new CardDealer();
+        }
         return instance;
     }
     
@@ -206,6 +210,7 @@ public class CardDealer {
         this.usedMonster.add(m);
     }
     public void initCards(){
+        System.out.println("debug");
         this.initTreasuresCardDeck();
         this.initMonsterCardDeck();
     }

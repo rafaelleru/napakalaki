@@ -16,21 +16,23 @@ public class Napakalaki {
     
     private static Napakalaki instance = null;
     private Player currentPlayer;
-    private ArrayList<Player> players;
-    private CardDealer dealer;
+    private ArrayList<Player> players = new ArrayList<Player>();
+    private CardDealer dealer = CardDealer.getInstance();
     private Monster currentMonster;
     
     
     private Napakalaki(){}
     
     public static Napakalaki getInstance(){
+        if (instance == null) {
+            instance = new Napakalaki();
+        }
         return instance;
     }
     
     private void initPlayers(ArrayList<String> names){
-       players = new ArrayList<>();
        for(String n : names){
-           players.add(new Player(n));
+           this.players.add(new Player(n));
        }
      }
     
@@ -89,7 +91,14 @@ public class Napakalaki {
     }
     
     private void setEnemies(){
-        //hacer
+        for(int i=0; i < this.players.size(); ++i){
+            Random seed = new Random();
+            int n=0;
+            while(n == i)
+                n = seed.nextInt(this.players.size());
+            
+            this.players.get(i).setEnemy(this.players.get(n));
+        }
     }
     
     
