@@ -72,7 +72,16 @@ public class Player {
         this.pendingBadConsequence = b;
     }
     //private void applyPrize(Monster m){}
-    //private void applyBadConsequence(Monster m){}
+    private void applyBadConsequence(Monster m){
+        BadConsequence badconsequence = m.getBc();
+        int nLevels = m.getCombatLevel();
+        
+        this.decrementLevels(nLevels);
+        this.pendingBadConsequence = badconsequence.adjustToFitTreasureList(
+                                        this.nVisibleTreasures, this.nHiddenTreasures);
+        this.setPendingBadConsequence(this.pendingBadConsequence);
+        
+    }
     private boolean canMakeTreasureVisible(Treasure t){
         boolean result = false;
         
@@ -80,7 +89,7 @@ public class Player {
             TreasureKind type = t.getType();
             switch(type){
                 case ONEHAND:
-                    if(isTreasureKindInUse(TreasureKind.BOTHHANDS)){
+                    if(true){//isTreasureKindInUse(TreasureKind.BOTHHANDS)){
                         result = false;
                     }else{
                         int i = 0;
@@ -100,7 +109,7 @@ public class Player {
                     break;
                     
                 default:
-                    result = !isTreasureKindInUse(type);
+                    //result = !isTreasureKindInUse(type);
                     break;
             }
         }
