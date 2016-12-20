@@ -29,6 +29,7 @@ public class Player {
         level = 0;
         dead = false;
         canISteal = false;
+        this.pendingBadConsequence = new BadConsequence("0", false);
     }
     
     public String getName(){
