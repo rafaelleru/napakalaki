@@ -26,7 +26,7 @@ public class Player {
     
     public Player(String n){
         name = n;
-        level = 0;
+        level = 1;
         dead = false;
         canISteal = false;
         this.pendingBadConsequence = new BadConsequence("0", false);
@@ -194,13 +194,18 @@ public class Player {
             }
         }
 
-        if(this.getCombatLevels() > monsterLevel){
+        if(this.getCombatLevels() >= monsterLevel){
+            System.out.println("combarlevel > monsterlevel");
             this.applyPrize(m);
-            if(this.getCombatLevels() >= MAXLEVEL)
+            if(this.getCombatLevels() >= MAXLEVEL){
+                System.out.println("combatlevel > maxlevel");
                 return CombatResult.WINGAME;
-            else
+            }else{
+                System.out.println("combatLevel < maxlevel");
                 return CombatResult.WIN;
+            }
         }else{
+            System.out.println("combatlevel < monsterlevel");
             this.applyBadConsequence(m);
             return CombatResult.LOSE;
         }
@@ -280,7 +285,7 @@ public class Player {
      * tesoros
      */
     public int getCombatLevels(){
-        int total_level = level;
+        int total_level = this.level;
         for(Treasure t: nHiddenTreasures){
             total_level += t.getBonus();
         }
