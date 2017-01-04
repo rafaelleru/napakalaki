@@ -195,17 +195,13 @@ public class Player {
         }
 
         if(this.getCombatLevels() >= monsterLevel){
-            System.out.println("combarlevel > monsterlevel");
             this.applyPrize(m);
             if(this.getCombatLevels() >= MAXLEVEL){
-                System.out.println("combatlevel > maxlevel");
                 return CombatResult.WINGAME;
             }else{
-                System.out.println("combatLevel < maxlevel");
                 return CombatResult.WIN;
             }
         }else{
-            System.out.println("combatlevel < monsterlevel");
             this.applyBadConsequence(m);
             return CombatResult.LOSE;
         }
