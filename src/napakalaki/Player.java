@@ -19,7 +19,7 @@ public class Player {
     private int level;
     private boolean dead = true;
     private boolean canISteal = true;
-    private Player enemy;
+    protected Player enemy;
     private ArrayList<Treasure> nVisibleTreasures  = new ArrayList<>();
     private ArrayList<Treasure> nHiddenTreasures = new ArrayList<>();
     private BadConsequence pendingBadConsequence;
@@ -288,7 +288,7 @@ public class Player {
      * @return total_level que es la suma de el nivel del player y los bonus de
      * tesoros
      */
-    public int getCombatLevels(){
+    protected int getCombatLevels(){
         int total_level = this.level;
         for(Treasure t: nHiddenTreasures){
             total_level += t.getBonus();
@@ -352,7 +352,7 @@ public class Player {
      * @return true si nVisibleTReasures tiene algun elemento
      *         false en otro caso
      */
-    private boolean canYouGiveMeATreasure(){
+    protected boolean canYouGiveMeATreasure(){
         return (this.nVisibleTreasures.size() > 0);
     }
     
@@ -368,6 +368,10 @@ public class Player {
         
         for(Treasure t: this.nHiddenTreasures)
             this.discardHiddenTreasure(t);
+    }
+    
+    protected int getOponentLevel(Monster m){
+        return m.getCombatLevel();
     }
     
 }
