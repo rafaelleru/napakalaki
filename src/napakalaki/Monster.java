@@ -14,19 +14,21 @@ public class Monster {
     private int combatLevel;
     private BadConsequence bc;
     private Prize prize;
-    
+    private int levelChangeAgainstCultistPlayer = 0;
     /**
      * 
      * @param name_ nombre del monstruo
      * @param combatLevel_ nivel
      * @param bc_ mal rollo
      * @param prize_ prize
+     * @param lC levelChange
      */
-    public Monster(String name_, int combatLevel_, BadConsequence bc_, Prize prize_){
+    public Monster(String name_, int combatLevel_, BadConsequence bc_, Prize prize_, int lC){
         name=name_;
         combatLevel=combatLevel_;
         bc=bc_;
         prize=prize_;
+        levelChangeAgainstCultistPlayer=lC;
     }
     
     public String getName() {
@@ -43,6 +45,10 @@ public class Monster {
 
     public Prize getPrize() {
         return prize;
+    }
+    
+    public int getCombatLevelAgainstCultistPlayer() {
+        return levelChangeAgainstCultistPlayer;
     }
     
     @Override
