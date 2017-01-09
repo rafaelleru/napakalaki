@@ -15,19 +15,34 @@ public class Monster {
     private BadConsequence bc;
     private Prize prize;
     private int levelChangeAgainstCultistPlayer = 0;
+   
     /**
      * 
      * @param name_ nombre del monstruo
      * @param combatLevel_ nivel
      * @param bc_ mal rollo
      * @param prize_ prize
-     * @param lC levelChange
      */
-    public Monster(String name_, int combatLevel_, BadConsequence bc_, Prize prize_, int lC){
+    public Monster(String name_, int combatLevel_, BadConsequence bc_, Prize prize_){
         name=name_;
         combatLevel=combatLevel_;
         bc=bc_;
         prize=prize_;
+    }
+    
+    /**
+     * 
+     * @param n nombre del monstruo
+     * @param l nivel
+     * @param badConsequence mal rollo
+     * @param p prize
+     * @param lC levelChange
+     */
+    public Monster(String n, int l, BadConsequence badConsequence, Prize p, int lC){
+        name=n;
+        combatLevel=l;
+        bc=badConsequence;
+        prize=p;
         levelChangeAgainstCultistPlayer=lC;
     }
     
