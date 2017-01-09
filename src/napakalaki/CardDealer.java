@@ -194,13 +194,12 @@ public class CardDealer {
     }
     
     public Treasure nextTreasure(){
-       Treasure t;
-       t = this.unusedTreasures.get(this.unusedTreasures.size());
-       this.unusedMonster.remove(t);
+       Treasure t = this.unusedTreasures.get(this.unusedTreasures.size()-1);
+       this.unusedTreasures.remove(t);
        return t;
     }
     public Monster nextMonster(){
-        Monster aux = this.unusedMonster.get(0);
+        Monster aux = this.unusedMonster.get(this.unusedMonster.size() - 1);
         this.unusedMonster.remove(aux);
         return aux;
     }

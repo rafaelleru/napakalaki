@@ -90,7 +90,9 @@ public class BadConsequence {
      * @return Cuantos tesoros visibles quita
      */
     public int getnVisibleTreasures() {
-        return nVisibleTreasures;
+        if(this.nVisibleTreasures == 0)
+            return this.specificVisibleTreasures.size();
+        else return this.nVisibleTreasures;
     }
     
     /**
@@ -98,7 +100,9 @@ public class BadConsequence {
      * @return Cuantos tesoros ocultos quita
      */
     public int getnHiddenTreasures() {
-        return nHiddenTreasures;
+        if(this.nHiddenTreasures == 0)
+            return this.specificHiddenTreasures.size();
+        else return this.nHiddenTreasures;
     }
     
     /**
@@ -161,5 +165,19 @@ public class BadConsequence {
      * @param h lista de tesoros
      * @return Un objeto de la clase BadConsequence
      */
-    //public BadConsequence adjustToFitTreasureLists( ArrayList<Treasure> v, ArrayList<Treasure> h){}
+    public BadConsequence adjustToFitTreasureLists( ArrayList<Treasure> v, ArrayList<Treasure> h){
+        BadConsequence aux = new BadConsequence("adjust", false);
+        
+        for(Treasure t: v){
+            if(this.specificVisibleTreasures.contains(t))
+                aux.specificVisibleTreasures.add(t.getType());
+        }
+        
+        for(Treasure t: h){
+            if(this.specificHiddenTreasures.contains(t))
+                aux.specificHiddenTreasures.add(t.getType());
+        }
+        
+        return aux;
+    }
 }

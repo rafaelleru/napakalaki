@@ -32,7 +32,9 @@ public class Napakalaki {
     
     private void initPlayers(ArrayList<String> names){
        for(String n : names){
-           this.players.add(new Player(n));
+           Player aux = new Player(n);
+           //aux.initTreasures();
+           this.players.add(aux);                   
        }
      }
     

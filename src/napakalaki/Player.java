@@ -64,7 +64,7 @@ public class Player {
      */
     private void decrementLevels(int l){
         if(this.level - l < 0)
-            this.level = 0;
+            this.level = 1;
         else
             this.level -= l;
     }
@@ -86,6 +86,7 @@ public class Player {
             CardDealer cd = CardDealer.getInstance();
             for(int i=0; i < nTreasures; ++i){
                 Treasure t = cd.nextTreasure();
+                System.out.println(t.getName());
                 this.nHiddenTreasures.add(t);
             }
         }
@@ -93,12 +94,16 @@ public class Player {
     private void applyBadConsequence(Monster m){
         BadConsequence badconsequence = m.getBc();
         int nLevels = m.getCombatLevel();
-        
-        this.decrementLevels(nLevels);
-        //this.pendingBadConsequence = badconsequence.adjustToFitTreasureList(
-          //                              this.nVisibleTreasures, this.nHiddenTreasures);
-        this.setPendingBadConsequence(this.pendingBadConsequence);
-        
+      
+        if(badconsequence.isDeath()){
+            this.dead = badconsequence.isDeath();
+            System.out.println("Estas muerto");
+        }else{
+            this.decrementLevels(nLevels);
+            this.pendingBadConsequence = this.pendingBadConsequence.adjustToFitTreasureLists(
+                    this.nVisibleTreasures, this.nHiddenTreasures);
+            this.setPendingBadConsequence(this.pendingBadConsequence);
+        }
     }
     private boolean canMakeTreasureVisible(Treasure t){
         boolean result = false;
@@ -152,7 +157,7 @@ public class Player {
     /**
      * @brief si el jugador no tiene tesoros hace dead true
      */
-    private void dielfNoTreasures(){
+    private void dieIfNoTreasures(){
         if(this.nHiddenTreasures.size() == 0 && this.nVisibleTreasures.size() == 0)
             this.dead = true;
     }
@@ -181,6 +186,7 @@ public class Player {
     public ArrayList<Treasure> getVisibleTreasures(){
         return this.nVisibleTreasures;
     }
+    
     public CombatResult combat(Monster m){
         int monsterLevel = m.getCombatLevel();
         
@@ -222,7 +228,7 @@ public class Player {
             this.pendingBadConsequence.substractVisibleTreasure(t);
         }
         
-        this.dielfNoTreasures();
+        this.dieIfNoTreasures();
         
         CardDealer cd = CardDealer.getInstance();
         cd.giveTreasureBack(t);
@@ -236,7 +242,7 @@ public class Player {
             this.pendingBadConsequence.substractVisibleTreasure(t);
         }
         
-        this.dielfNoTreasures();
+        this.dieIfNoTreasures();
         
         CardDealer cd = CardDealer.getInstance();
         cd.giveTreasureBack(t);
@@ -265,11 +271,13 @@ public class Player {
         int n = d.nextNumber();
         
         if(n > 1){
+            System.out.println("n>1");
             t = cd.nextTreasure();
             this.nHiddenTreasures.add(t);
         }
         
-        if(n > 6){
+        if(n >= 6){
+            System.out.println("n=6");
             t = cd.nextTreasure();
             this.nHiddenTreasures.add(t);
         }

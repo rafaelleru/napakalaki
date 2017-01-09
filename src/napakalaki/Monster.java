@@ -45,6 +45,7 @@ public class Monster {
         return prize;
     }
     
+    @Override
     public String toString(){
         return name + " Niveles: " + Integer.toString(combatLevel) + " " + bc.toString() + " " + prize.toString();
     }
