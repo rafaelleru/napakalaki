@@ -20,6 +20,8 @@ public class CardDealer {
     private ArrayList<Treasure> usedTreasures = new ArrayList<Treasure>();
     private ArrayList<Monster> unusedMonster;
     private ArrayList<Monster> usedMonster = new ArrayList<Monster>();
+    private ArrayList<Monster> unusedCultist = new ArrayList<Monster>();
+    private ArrayList<Monster> usedCultist = new ArrayList<Monster>();
     
     private CardDealer(){}
     
@@ -67,6 +69,7 @@ public class CardDealer {
     
     private void initMonsterCardDeck(){
     
+        //Monstruos
         unusedMonster = new ArrayList<Monster>();
         BadConsequence badConsequence0 = new BadConsequence("Pierdes tu armadura visible."
                 + "y otra oculta",0,new ArrayList(Arrays.asList(TreasureKind.ARMOR)),
@@ -176,6 +179,39 @@ public class CardDealer {
         Prize prize18 = new Prize(2,1);
         unusedMonster.add(new Monster("Bicéfalo",21,badConsequence18,prize18));
         
+        //Monstruos sectarios
+        BadConsequence bC1 = new BadConsequence("Pierdes 1 mano visible. ",0, 
+                new ArrayList(Arrays.asList(TreasureKind.ONEHAND)),
+                new ArrayList(Arrays.asList()));
+        Prize p1 = new Prize(3,1);
+        unusedCultist.add(new Monster("El mal indecible impronunciable",10,bC1,p1,-2));
+        
+        BadConsequence bC2 = new BadConsequence("Pierdes tus tesoros visibles. Jajaja. ",0,10,0);
+        Prize p2 = new Prize(2,1);
+        unusedCultist.add(new Monster("Testigos Oculares",6,bC2,p2,2));
+        
+        BadConsequence bC3 = new BadConsequence("Hoy no es tu día de suerte. Mueres",true);
+        Prize p3 = new Prize(2,5);
+        unusedCultist.add(new Monster("El gran cthulhu",20,bC3,p3,4));
+        
+        BadConsequence bC4 = new BadConsequence("Tu gobierno te recorta 2 niveles. ",2,0,0);
+        Prize p4 = new Prize(2,1);
+        unusedCultist.add(new Monster("Serpiente Político",8,bC4,p4,-2));
+        
+        BadConsequence bC5 = new BadConsequence("Pierdes tu casco y armadura visible. Pierdes tus manos ocultas",0,
+                new ArrayList(Arrays.asList(TreasureKind.HELMET,TreasureKind.ARMOR)),
+                new ArrayList(Arrays.asList(TreasureKind.ONEHAND,TreasureKind.ONEHAND)));
+        Prize p5 = new Prize(1,1);
+        unusedCultist.add(new Monster("Felpuggoth",2,bC5,p5,5));
+        
+        BadConsequence bC6 = new BadConsequence("Pierdes 2 niveles. ",2,0,0);
+        Prize p6 = new Prize(4,2);
+        unusedCultist.add(new Monster("Shoggoth",16,bC6,p6,-4));
+        
+        BadConsequence bC7 = new BadConsequence("Pintalabios negro. Pierdes 2 niveles. ",2,0,0);
+        Prize p7 = new Prize(1,1);
+        unusedCultist.add(new Monster("Lolitagooth",2,bC7,p7,3));
+       
     }
     
     private void shuffleTreasures(){
