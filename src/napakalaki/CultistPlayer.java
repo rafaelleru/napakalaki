@@ -22,7 +22,7 @@ public class CultistPlayer extends Player{
     
     @Override
     protected int getCombatLevels(){
-        return super.getCombatLevels() + super.getCombatLevels()*0.7 + this.myCultistCard.getSpecialValue();
+        return (int) (super.getCombatLevels() + super.getCombatLevels()*0.7 + this.myCultistCard.getLEvelsGained());
     }
     
     protected boolean shouldConvert(){
