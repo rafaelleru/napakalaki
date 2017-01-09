@@ -374,4 +374,8 @@ public class Player {
         return m.getCombatLevel();
     }
     
+    protected boolean shouldConvert() {
+        return true;
+    }
+    
 }
