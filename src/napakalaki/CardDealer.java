@@ -215,6 +215,8 @@ public class CardDealer {
         System.out.println("debug");
         this.initTreasuresCardDeck();
         this.initMonsterCardDeck();
+        this.shuffleMonsters();
+        this.shuffleTreasures();
     }
     
 }
