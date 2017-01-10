@@ -76,6 +76,6 @@ public class Monster {
     }
     
     public int getTreasuresGained(){
-        return this.bc.getnHiddenTreasures() + this.bc.getnVisibleTreasures();
+         return this.prize.getTreasures();
     }
 }

@@ -15,7 +15,7 @@ public class CultistPlayer extends Player{
     private static int totalCultistPlayer = 0;
     private Cultist myCultistCard;
     public CultistPlayer(Player p, Cultist c) {
-        super(p.getName());
+        super(p);
         totalCultistPlayer++;
         this.myCultistCard = c;
     }

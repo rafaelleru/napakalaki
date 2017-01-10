@@ -29,7 +29,7 @@ public class Player {
         level = 1;
         dead = false;
         canISteal = false;
-        this.pendingBadConsequence = new BadConsequence("0", false);
+        this.pendingBadConsequence = new DeathBadConsequence("0", false);
     }
     
     public Player(Player p){
