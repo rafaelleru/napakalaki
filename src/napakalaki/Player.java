@@ -199,7 +199,7 @@ public class Player {
     }
     
     public CombatResult combat(Monster m){
-        int monsterLevel = m.getCombatLevel();
+        int monsterLevel = this.getOponentLevel(m);
         
         if(this.canISteal() == false){
             Dice d = Dice.getInstance();
@@ -220,7 +220,10 @@ public class Player {
             }
         }else{
             this.applyBadConsequence(m);
-            return CombatResult.LOSE;
+            if(shouldConvert())
+                return CombatResult.LOSEANDCONVERT;
+            else
+                return CombatResult.LOSE;
         }
     }
     
