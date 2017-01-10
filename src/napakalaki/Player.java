@@ -386,7 +386,12 @@ public class Player {
     }
     
     protected boolean shouldConvert() {
-        return true;
+        Dice d = Dice.getInstance();
+        int n = d.nextNumber();
+        
+        if(n == 6)
+            return true;
+        else return false;
     }
     
 }
