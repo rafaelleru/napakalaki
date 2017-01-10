@@ -272,8 +272,10 @@ public class CardDealer {
         System.out.println("debug");
         this.initTreasuresCardDeck();
         this.initMonsterCardDeck();
+        this.initCultistCardDeck();
         this.shuffleMonsters();
         this.shuffleTreasures();
+        this.shuffleCultists();
     }
     
 }
