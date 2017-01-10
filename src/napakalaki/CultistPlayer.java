@@ -38,7 +38,9 @@ public class CultistPlayer extends Player{
     private Treasure giveMeATreasure(){
         Random r = new Random();
         int n = r.nextInt(super.enemy.getVisibleTreasures().size()) + 1;
-        return super.stealTreasure();
+        Treasure t = this.nVisibleTreasures.get(n);
+        this.nVisibleTreasures.remove(t);
+        return t;
     }
     
     @Override

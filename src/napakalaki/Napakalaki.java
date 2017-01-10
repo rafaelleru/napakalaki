@@ -106,7 +106,22 @@ public class Napakalaki {
     
     public CombatResult developCombat(){
         this.dealer.giveMonsterBack(this.currentMonster);
-        return this.currentPlayer.combat(this.currentMonster);
+        if(this.currentPlayer.combat(this.currentMonster) == CombatResult.LOSEANDCONVERT){
+            Cultist c = this.dealer.nextCultist();
+            CultistPlayer newCultist = new CultistPlayer(this.currentPlayer, c);
+            
+            int indexOfCurrentPlayer = this.players.indexOf(currentPlayer);
+            this.players.remove(this.currentPlayer);
+            this.players.add(indexOfCurrentPlayer, newCultist);
+            
+            for(Player p: players){
+                if(p.getEnemy() == currentPlayer && p != currentPlayer){
+                    p.setEnemy(newCultist);
+                }
+            }
+            
+            
+        }
         
     }
     public void discardVisibleTreasures(ArrayList<Treasure> treasures){

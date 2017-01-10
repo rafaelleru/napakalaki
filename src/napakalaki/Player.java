@@ -20,8 +20,8 @@ public class Player {
     private boolean dead = true;
     private boolean canISteal = true;
     protected Player enemy;
-    private ArrayList<Treasure> nVisibleTreasures  = new ArrayList<>();
-    private ArrayList<Treasure> nHiddenTreasures = new ArrayList<>();
+    protected ArrayList<Treasure> nVisibleTreasures  = new ArrayList<>();
+    protected ArrayList<Treasure> nHiddenTreasures = new ArrayList<>();
     private BadConsequence pendingBadConsequence;
     
     public Player(String n){
@@ -395,6 +395,10 @@ public class Player {
         if(n == 6)
             return true;
         else return false;
+    }
+    
+    protected Player getEnemy(){
+        return this.enemy;
     }
     
 }
