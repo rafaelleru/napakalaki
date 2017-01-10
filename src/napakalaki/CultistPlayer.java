@@ -31,7 +31,7 @@ public class CultistPlayer extends Player{
     
     @Override
     protected int getOponentLevel(Monster m){
-        return m.getCombatLevelAgainstCultist();
+        return m.getCombatLevelAgainstCultistPlayer();
     }
     
     

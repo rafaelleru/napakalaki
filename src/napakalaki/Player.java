@@ -32,6 +32,17 @@ public class Player {
         this.pendingBadConsequence = new BadConsequence("0", false);
     }
     
+    public Player(Player p){
+        this.name = p.name;
+        this.level = p.level;
+        this.dead  = p.dead;
+        this.enemy = p.enemy;
+        this.canISteal = p.canISteal;
+        this.nHiddenTreasures = p.nHiddenTreasures;
+        this.nVisibleTreasures = p.nVisibleTreasures;
+        this.pendingBadConsequence = p.pendingBadConsequence;
+    }
+    
     public String getName(){
         return name;
     }
