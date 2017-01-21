@@ -5,6 +5,7 @@
  */
 package napakalaki;
 import GUI.*;
+import java.util.ArrayList;
 /**
  *
  * @author archdri
@@ -13,6 +14,11 @@ public class NapakalakiGame {
     public static void main(String[] args){
         Napakalaki game = Napakalaki.getInstance();
         NapakalakiView napakalakiView = new NapakalakiView();
+        ArrayList<String> names;
+        PlayerNamesCapture namesCapture = new PlayerNamesCapture(napakalakiView, true);
+        names = namesCapture.getNames();
+        game.initGame(names);
+        
         
         Dice.createInstance(napakalakiView);
         napakalakiView.setNapakalaki(game);
