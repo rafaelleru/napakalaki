@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package GUI;
+import napakalaki.*;
 
 /**
  *
@@ -13,10 +14,10 @@ public class TreasureView extends javax.swing.JPanel {
 
     private Treasure treasureModel;
     
-    public void setTreasure(aTreasure){
+    public void setTreasure(Treasure aTreasure){
         this.treasureModel.name = aTreasure.getName();
-        this.treasureModel.bonus = aTreasure.getBonus;
-        this.treasureModel.type = aTreasure.getType;
+        this.treasureModel.bonus = aTreasure.getBonus();
+        this.treasureModel.type = aTreasure.getType();
     }
     
     /**
