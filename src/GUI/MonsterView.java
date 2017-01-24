@@ -100,8 +100,8 @@ public class MonsterView extends javax.swing.JPanel {
 
     public void setMonster(Monster aMonster){
         this.monsterModel = aMonster;
-        this.monsterModel.setBadConsequence(aMonster.getBc());
-        this.monsterModel.setPrize(aMonster.getPrize());
+        this.monsterModel.bc.setBadConsequence(aMonster.getBc());
+        this.monsterModel.prize.setPrize(aMonster.getPrize());
         repaint();
     }
 
