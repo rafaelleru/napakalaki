@@ -146,6 +146,7 @@ public class NapakalakiView extends javax.swing.JFrame {
 
     private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
         this.napakalakiModel.nextTurn();
+        this.playerView.setPlayer(this.napakalakiModel.getCurrentPlayer());
     }//GEN-LAST:event_NextActionPerformed
 
     public void showView(){
