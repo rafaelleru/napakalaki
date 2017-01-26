@@ -56,7 +56,7 @@ public class Napakalaki {
         
         nextPlayer = this.players.get(index);
         this.currentPlayer = nextPlayer;
-        
+        System.out.println(this.currentPlayer.getHiddenTreasures().size());
         return this.currentPlayer;
         
     }
@@ -136,9 +136,13 @@ public class Napakalaki {
     }
     
     public void initGame(ArrayList<String> players){
-        this.initPlayers(players);
-        this.setEnemies();
         this.dealer.initCards();
+
+        this.initPlayers(players);
+        for(Player p: this.players){
+            p.initTreasures();
+        }
+        this.setEnemies();
         this.nextTurn();
     }
     public boolean nextTurn(){
