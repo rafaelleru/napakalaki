@@ -7,6 +7,7 @@ package GUI;
 import napakalaki.*;
 import java.awt.Component;
 import java.util.ArrayList;
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import napakalaki.Player;
 /**
@@ -22,12 +23,12 @@ public class PlayerView extends javax.swing.JPanel {
     public void setNapakalaki(Napakalaki napakalaki){
         this.napakalakiModel = napakalaki;
     }
+   
     
-    /**
-     * Creates new form PlayerView
-     */
     public PlayerView() {
         initComponents();
+
+        this.setBorder(BorderFactory.createTitledBorder("Jugador"));
     }
 
     /**
@@ -50,8 +51,8 @@ public class PlayerView extends javax.swing.JPanel {
         discardAllTreasures = new javax.swing.JButton();
         namePlayer = new javax.swing.JLabel();
         levelPlayer = new javax.swing.JLabel();
-        txtVisibleTreasures = new javax.swing.JPanel();
-        txtHiddenTreasures = new javax.swing.JPanel();
+        arrayVisible = new javax.swing.JPanel();
+        arrayHidden = new javax.swing.JPanel();
         txtNamePlayer = new javax.swing.JPanel();
         txtLevelPLayer = new javax.swing.JPanel();
 
@@ -119,26 +120,26 @@ public class PlayerView extends javax.swing.JPanel {
 
         levelPlayer.setText("Level");
 
-        javax.swing.GroupLayout txtVisibleTreasuresLayout = new javax.swing.GroupLayout(txtVisibleTreasures);
-        txtVisibleTreasures.setLayout(txtVisibleTreasuresLayout);
-        txtVisibleTreasuresLayout.setHorizontalGroup(
-            txtVisibleTreasuresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
+        javax.swing.GroupLayout arrayVisibleLayout = new javax.swing.GroupLayout(arrayVisible);
+        arrayVisible.setLayout(arrayVisibleLayout);
+        arrayVisibleLayout.setHorizontalGroup(
+            arrayVisibleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 290, Short.MAX_VALUE)
         );
-        txtVisibleTreasuresLayout.setVerticalGroup(
-            txtVisibleTreasuresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        arrayVisibleLayout.setVerticalGroup(
+            arrayVisibleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 263, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout txtHiddenTreasuresLayout = new javax.swing.GroupLayout(txtHiddenTreasures);
-        txtHiddenTreasures.setLayout(txtHiddenTreasuresLayout);
-        txtHiddenTreasuresLayout.setHorizontalGroup(
-            txtHiddenTreasuresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
+        javax.swing.GroupLayout arrayHiddenLayout = new javax.swing.GroupLayout(arrayHidden);
+        arrayHidden.setLayout(arrayHiddenLayout);
+        arrayHiddenLayout.setHorizontalGroup(
+            arrayHiddenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 276, Short.MAX_VALUE)
         );
-        txtHiddenTreasuresLayout.setVerticalGroup(
-            txtHiddenTreasuresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        arrayHiddenLayout.setVerticalGroup(
+            arrayHiddenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout txtNamePlayerLayout = new javax.swing.GroupLayout(txtNamePlayer);
@@ -170,40 +171,31 @@ public class PlayerView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(stealTreasure)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(stealTreasure)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(namePlayer)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNamePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(levelPlayer)
-                                .addGap(27, 27, 27)
-                                .addComponent(txtLevelPLayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(makeVisible, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(316, 316, 316)
-                        .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(levelPlayer)
+                        .addGap(27, 27, 27)
+                        .addComponent(txtLevelPLayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(makeVisible, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(discardTreasure, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(discardAllTreasures)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(discardTreasure, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(discardAllTreasures)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(namePlayer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNamePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(visibleTreasures)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(arrayVisible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(arrayHidden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(298, 298, 298)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(169, 169, 169)
-                                .addComponent(visibleTreasures)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(txtVisibleTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtHiddenTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(hiddenTreasures))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(hiddenTreasures))))
+                .addGap(0, 41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,29 +208,26 @@ public class PlayerView extends javax.swing.JPanel {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNamePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(namePlayer)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(hiddenTreasures)
                                 .addComponent(visibleTreasures)
-                                .addComponent(namePlayer)))))
+                                .addComponent(hiddenTreasures)))))
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(arrayHidden, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtVisibleTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtHiddenTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(levelPlayer)
                             .addComponent(txtLevelPLayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(33, 33, 33)
                         .addComponent(stealTreasure)
                         .addGap(18, 18, 18)
-                        .addComponent(makeVisible)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(discardTreasure)
-                    .addComponent(discardAllTreasures))
+                        .addComponent(makeVisible)
+                        .addGap(18, 18, 18)
+                        .addComponent(discardTreasure)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(discardAllTreasures))
+                    .addComponent(arrayVisible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -248,7 +237,10 @@ public class PlayerView extends javax.swing.JPanel {
     }//GEN-LAST:event_discardTreasureActionPerformed
 
     private void stealTreasureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stealTreasureActionPerformed
-        selHidden = getSelectedTreasures(txtHiddenTreasures);
+        if(this.playerModel.canISteal())
+            this.playerModel.stealTreasure();
+        else
+            System.out.print("No se puede robar");
     }//GEN-LAST:event_stealTreasureActionPerformed
 
     private void makeVisibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeVisibleActionPerformed
@@ -257,6 +249,8 @@ public class PlayerView extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel arrayHidden;
+    private javax.swing.JPanel arrayVisible;
     private javax.swing.JButton discardAllTreasures;
     private javax.swing.JButton discardTreasure;
     private javax.swing.JLabel hiddenTreasures;
@@ -267,10 +261,8 @@ public class PlayerView extends javax.swing.JPanel {
     private javax.swing.JButton makeVisible;
     private javax.swing.JLabel namePlayer;
     private javax.swing.JButton stealTreasure;
-    private javax.swing.JPanel txtHiddenTreasures;
     private javax.swing.JPanel txtLevelPLayer;
     private javax.swing.JPanel txtNamePlayer;
-    private javax.swing.JPanel txtVisibleTreasures;
     private javax.swing.JLabel visibleTreasures;
     // End of variables declaration//GEN-END:variables
 
@@ -294,8 +286,8 @@ public class PlayerView extends javax.swing.JPanel {
         this.playerModel = aPlayer;
                 
     
-        fillTreasurePanel(jPanel1, playerModel.getVisibleTreasures());
-        fillTreasurePanel(jPanel2, playerModel.getHiddenTreasures());
+        fillTreasurePanel(this.arrayVisible, playerModel.getVisibleTreasures());
+        fillTreasurePanel(this.arrayHidden, playerModel.getHiddenTreasures());
         
         this.namePlayer.setText("Name: " + this.playerModel.getName());
         this.levelPlayer.setText("Level: " + Integer.toString(this.playerModel.getLevel()));
