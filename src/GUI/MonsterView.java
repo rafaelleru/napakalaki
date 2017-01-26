@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package GUI;
+import javax.swing.BorderFactory;
 import napakalaki.*;
 /**
  *
@@ -17,6 +18,7 @@ public class MonsterView extends javax.swing.JPanel {
      * Creates new form MonsterView
      */
     public MonsterView() {
+        this.setBorder(BorderFactory.createTitledBorder("Monster"));
         initComponents();
     }
 
