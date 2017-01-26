@@ -283,7 +283,7 @@ public class Player {
         Treasure t = cd.nextTreasure();
         this.nHiddenTreasures.add(t);
         
-        int n = d.nextNumber();
+        int n = 3;//d.nextNumber();
         
         if(n > 1){
             System.out.println("n>1");
