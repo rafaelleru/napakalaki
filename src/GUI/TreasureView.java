@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package GUI;
+import java.awt.Color;
 import napakalaki.*;
 
 /**
@@ -13,11 +14,21 @@ import napakalaki.*;
 public class TreasureView extends javax.swing.JPanel {
 
     private Treasure treasureModel;
+
+    public Treasure getTreasure() {
+        return treasureModel;
+    }
+    private boolean selected = false;
+
+    public boolean isSelected() {
+        return selected;
+    }
     
     public void setTreasure(Treasure aTreasure){
-        this.treasureModel.name = aTreasure.getName();
-        this.treasureModel.bonus = aTreasure.getBonus();
-        this.treasureModel.type = aTreasure.getType();
+        this.treasureModel = aTreasure;
+        this.nameTreasure.setText(this.treasureModel.getName());
+        this.bonus.setText(Integer.toString(this.treasureModel.getBonus()));
+        this.kind.setText(this.treasureModel.getType().toString());
     }
     
     /**
@@ -36,24 +47,59 @@ public class TreasureView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtBonus = new javax.swing.JTextField();
+        nameTreasure = new javax.swing.JLabel();
+        bonus = new javax.swing.JLabel();
+        kind = new javax.swing.JLabel();
+        txtNameTreasure = new javax.swing.JPanel();
+        txtBonuses = new javax.swing.JPanel();
+        txtKind = new javax.swing.JPanel();
 
-        jLabel1.setText("Name");
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
-        jLabel2.setText("Bonus");
+        nameTreasure.setBackground(new java.awt.Color(255, 0, 51));
+        nameTreasure.setText("Name");
 
-        jLabel3.setText("Kind");
+        bonus.setText("Bonus");
 
-        jTextField1.setText("jTextField1");
+        kind.setText("Kind");
 
-        jTextField2.setText("jTextField2");
+        javax.swing.GroupLayout txtNameTreasureLayout = new javax.swing.GroupLayout(txtNameTreasure);
+        txtNameTreasure.setLayout(txtNameTreasureLayout);
+        txtNameTreasureLayout.setHorizontalGroup(
+            txtNameTreasureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 137, Short.MAX_VALUE)
+        );
+        txtNameTreasureLayout.setVerticalGroup(
+            txtNameTreasureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
-        jTextField3.setText("jTextField3");
+        javax.swing.GroupLayout txtBonusesLayout = new javax.swing.GroupLayout(txtBonuses);
+        txtBonuses.setLayout(txtBonusesLayout);
+        txtBonusesLayout.setHorizontalGroup(
+            txtBonusesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 35, Short.MAX_VALUE)
+        );
+        txtBonusesLayout.setVerticalGroup(
+            txtBonusesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 15, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout txtKindLayout = new javax.swing.GroupLayout(txtKind);
+        txtKind.setLayout(txtKindLayout);
+        txtKindLayout.setHorizontalGroup(
+            txtKindLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+        );
+        txtKindLayout.setVerticalGroup(
+            txtKindLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 15, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -62,43 +108,61 @@ public class TreasureView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nameTreasure)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtNameTreasure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(bonus)
+                        .addGap(7, 7, 7)
+                        .addComponent(txtBonuses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
+                        .addComponent(kind)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextField1))
-                .addContainerGap(194, Short.MAX_VALUE))
+                        .addComponent(txtKind, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(nameTreasure, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtNameTreasure, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(bonus)
+                        .addComponent(kind))
+                    .addComponent(txtBonuses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtKind, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        if(selected){
+            selected = false;
+            this.setOpaque(true);
+            this.setBackground(Color.RED);
+        }else{
+            selected = true;
+            this.setOpaque(false);
+            this.setBackground(Color.GREEN);
+        }
+        
+        repaint();
+    }//GEN-LAST:event_formMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel bonus;
+    private javax.swing.JLabel kind;
+    private javax.swing.JLabel nameTreasure;
+    private javax.swing.JTextField txtBonus;
+    private javax.swing.JPanel txtBonuses;
+    private javax.swing.JPanel txtKind;
+    private javax.swing.JPanel txtNameTreasure;
     // End of variables declaration//GEN-END:variables
 }
