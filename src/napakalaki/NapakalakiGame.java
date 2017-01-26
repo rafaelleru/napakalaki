@@ -14,7 +14,7 @@ public class NapakalakiGame {
     public static void main(String[] args){
         Napakalaki game = Napakalaki.getInstance();
         NapakalakiView napakalakiView = new NapakalakiView();
-        ArrayList<String> names;
+        ArrayList<String> names = new ArrayList<>();
         PlayerNamesCapture namesCapture = new PlayerNamesCapture(napakalakiView, true);
         names = namesCapture.getNames();
         game.initGame(names);
